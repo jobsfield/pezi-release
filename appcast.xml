@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Pezi</title>
+        <item>
+            <title>1.0</title>
+            <pubDate>Fri, 19 Jun 2026 15:04:53 +0800</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
+            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="6184901" type="application/octet-stream" sparkle:edSignature="XkoUQP2N/ZSppj19fIq0ZKnySv/SVPtUkRo6Vmyn8KKYqnO+A8sYzBfqD/YGIffdHZgk61pqprKM+VD5TmrxCg=="/>
+        </item>
+    </channel>
+</rss>
