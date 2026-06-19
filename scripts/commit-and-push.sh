@@ -10,8 +10,37 @@ fail() {
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 PUBLISH_SCRIPT="$SCRIPT_DIR/publish-release.sh"
+GENERATE_NOTES_SCRIPT="$SCRIPT_DIR/generate-release-notes.sh"
 
 [[ -x "$PUBLISH_SCRIPT" ]] || fail "Missing publish script at $PUBLISH_SCRIPT"
+[[ -x "$GENERATE_NOTES_SCRIPT" ]] || fail "Missing release-notes script at $GENERATE_NOTES_SCRIPT"
+
+appcast_contains_build() {
+  local appcast_path="$1"
+  local build_version="$2"
+
+  [[ -f "$appcast_path" ]] || return 1
+
+  python3 - "$appcast_path" "$build_version" <<'PY'
+import sys
+import xml.etree.ElementTree as ET
+
+appcast_path, build_version = sys.argv[1:3]
+ns = {"sparkle": "http://www.andymatuschak.org/xml-namespaces/sparkle"}
+
+try:
+    root = ET.parse(appcast_path).getroot()
+except Exception:
+    sys.exit(2)
+
+for item in root.findall("./channel/item"):
+    item_build = item.findtext("sparkle:version", namespaces=ns)
+    if item_build == build_version:
+        sys.exit(0)
+
+sys.exit(1)
+PY
+}
 
 find_latest_app() {
   python3 - <<'PY'
@@ -72,11 +101,22 @@ detect_release_notes() {
 
 APP_PATH="$(find_latest_app)" || fail "Could not find a Pezi.app archive under ~/Library/Developer/Xcode/Archives. Build, sign, and notarize the app in Xcode first."
 RELEASE_NOTES=""
+BUILD_VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "$APP_PATH/Contents/Info.plist" 2>/dev/null || true)
+
+[[ -n "$BUILD_VERSION" ]] || fail "CFBundleVersion is missing from the latest archived app."
+
+if appcast_contains_build "$REPO_ROOT/appcast.xml" "$BUILD_VERSION"; then
+  fail "appcast.xml already contains build $BUILD_VERSION. Bump CFBundleVersion before publishing."
+fi
 
 if RELEASE_NOTES="$(detect_release_notes "$APP_PATH")"; then
   echo "Using release notes: $RELEASE_NOTES"
 else
-  RELEASE_NOTES=""
+  if RELEASE_NOTES="$("$GENERATE_NOTES_SCRIPT" --app "$APP_PATH")"; then
+    echo "Generated release notes: $RELEASE_NOTES"
+  else
+    RELEASE_NOTES=""
+  fi
 fi
 
 echo "Using latest archived app: $APP_PATH"

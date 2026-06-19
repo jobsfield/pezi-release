@@ -12,10 +12,11 @@ The intent is deliberately narrow: the user has already built, signed, and notar
 ## What this skill does
 
 1. Finds the latest archived `Pezi.app` under `~/Library/Developer/Xcode/Archives`
-2. Optionally picks up release notes from `release-notes/` if a matching Markdown file exists
-3. Packages the app correctly with `ditto`
-4. Regenerates `appcast.xml`
-5. Commits and pushes the `pezi-release` repository
+2. Reuses existing release notes if a matching Markdown file exists
+3. Otherwise auto-generates release notes from the archived app version/build and recent app repo commits
+4. Packages the app correctly with `ditto`
+5. Regenerates `appcast.xml`
+6. Commits and pushes the `pezi-release` repository
 
 The deterministic entrypoint is:
 
@@ -45,7 +46,9 @@ If those assumptions are false, stop and ask for the explicit archive path or fo
 
 3. If the script fails because no archive exists, tell the user to archive/export the app from Xcode first.
 
-4. If the script succeeds, report:
+4. Do not ask the user for release notes unless the auto-generated notes are clearly wrong and human judgment is required.
+
+5. If the script succeeds, report:
    - the chosen archive path
    - the version/build that was published
    - the release repo commit hash
@@ -53,7 +56,7 @@ If those assumptions are false, stop and ask for the explicit archive path or fo
 
 ## Release Notes Convention
 
-If `release-notes/` exists in this repo, the wrapper script looks for:
+If `release-notes/` exists in this repo, the wrapper script first looks for:
 
 - `release-notes/<short-version>-<build>.md`
 - `release-notes/<short-version>.md`
@@ -61,6 +64,7 @@ If `release-notes/` exists in this repo, the wrapper script looks for:
 - `release-notes/latest.md`
 
 If none of those exist, it publishes without release notes.
+If none of those exist, the wrapper now auto-generates `release-notes/<short-version>-<build>.md` from the app bundle metadata and recent `candy-jar` commits.
 
 ## Failure Modes
 
@@ -69,6 +73,9 @@ If none of those exist, it publishes without release notes.
 
 - `Could not find a Pezi.app archive ...`:
   There is no exportable archive in Xcode's archive directory. Ask the user to build/sign/notarize first.
+
+- Auto-generated release notes are poor or misleading:
+  Rewrite them in the release repo and rerun the publish command.
 
 - Sparkle packaging or signing validation failures:
   Surface the exact error and stop. Do not hand-roll `appcast.xml`.
