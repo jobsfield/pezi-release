@@ -1,7 +1,6 @@
 # Pezi 1.0
 
-Initial release.
+Build 2
 
-- Sparkle-based in-app update support is now configured
-- GitHub Pages hosts the Sparkle appcast feed
-- GitHub Releases hosts the downloadable archive
+Highlights:
+- Test release to verify the Sparkle update mechanism
