@@ -57,6 +57,35 @@ ensure_trailing_slash() {
   esac
 }
 
+appcast_contains_build() {
+  local appcast_path="$1"
+  local short_version="$2"
+  local build_version="$3"
+
+  [[ -f "$appcast_path" ]] || return 1
+
+  python3 - "$appcast_path" "$short_version" "$build_version" <<'PY'
+import sys
+import xml.etree.ElementTree as ET
+
+appcast_path, short_version, build_version = sys.argv[1:4]
+ns = {"sparkle": "http://www.andymatuschak.org/xml-namespaces/sparkle"}
+
+try:
+    root = ET.parse(appcast_path).getroot()
+except Exception:
+    sys.exit(2)
+
+for item in root.findall("./channel/item"):
+    item_build = item.findtext("sparkle:version", namespaces=ns)
+    item_short = item.findtext("sparkle:shortVersionString", namespaces=ns)
+    if item_build == build_version or (item_build == build_version and item_short == short_version):
+        sys.exit(0)
+
+sys.exit(1)
+PY
+}
+
 find_generate_appcast() {
   if [[ -n "${SPARKLE_GENERATE_APPCAST:-}" && -x "${SPARKLE_GENERATE_APPCAST}" ]]; then
     printf '%s\n' "${SPARKLE_GENERATE_APPCAST}"
@@ -123,6 +152,7 @@ done
 
 require_command ditto
 require_command git
+require_command python3
 
 [[ -n "$APP_PATH" ]] || fail "--app is required"
 [[ -d "$APP_PATH" ]] || fail "App bundle not found: $APP_PATH"
@@ -150,6 +180,10 @@ FEED_URL="$(plist_read "$INFO_PLIST" "SUFeedURL")"
 
 [[ -n "$SHORT_VERSION" ]] || fail "CFBundleShortVersionString is missing from the app bundle"
 [[ -n "$BUILD_VERSION" ]] || fail "CFBundleVersion is missing from the app bundle"
+
+if appcast_contains_build "$APPCAST_PATH" "$SHORT_VERSION" "$BUILD_VERSION"; then
+  fail "appcast.xml already contains build $BUILD_VERSION for version $SHORT_VERSION. Bump CFBundleVersion before publishing."
+fi
 
 if [[ -z "$DOWNLOAD_URL_PREFIX" ]]; then
   [[ -n "$FEED_URL" ]] || fail "SUFeedURL is missing from the app bundle. Pass --download-url-prefix."
