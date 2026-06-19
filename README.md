@@ -8,7 +8,7 @@ This repo owns:
 - published release archives such as `Pezi.app.zip`
 - optional release notes such as `Pezi.app.md`
 - the publishing helper script at `./scripts/publish-release.sh`
-- the local release skill at `.trae/skills/pezi-release-commit-and-push/SKILL.md`
+- the local release skill at `.agents/skills/pezi-release-commit-and-push/SKILL.md`
 
 Typical release flow:
 
