@@ -1,6 +1,6 @@
 # Pezi 1.0
 
-Build 2
+Build 3
 
 Highlights:
-- Test release to verify the Sparkle update mechanism
+- Auto-focus tag editor
