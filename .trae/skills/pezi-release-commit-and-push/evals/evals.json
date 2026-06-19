@@ -1,0 +1,23 @@
+{
+  "skill_name": "pezi-release-commit-and-push",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "commit and push",
+      "expected_output": "Runs the release repo wrapper script, publishes the latest archived Pezi build, and reports the published version/build and URLs.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "publish the latest build",
+      "expected_output": "Triggers the same release workflow from the pezi-release repo without requiring the user to mention Sparkle or appcast.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "ship the new version",
+      "expected_output": "Publishes the newest archived Pezi.app if unambiguous, or asks for clarification if multiple candidate archives need human choice.",
+      "files": []
+    }
+  ]
+}
