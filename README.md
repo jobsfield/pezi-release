@@ -20,3 +20,9 @@ cd /Users/eason/Documents/GitBuh/pezi-release
   --commit \
   --push
 ```
+
+Guardrails:
+
+- the script refuses to publish if `appcast.xml` already contains the same `CFBundleVersion`
+- bump `CFBundleVersion` for every publishable build
+- if the release is user-visible, usually bump `CFBundleShortVersionString` too
