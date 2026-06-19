@@ -1,6 +1,6 @@
 ---
 name: pezi-release-commit-and-push
-description: "Publish the latest signed and notarized Pezi build from the pezi-release repository. Use this whenever the user is working in the pezi-release repo and says things like 'commit and push', 'publish release', 'ship the latest build', 'push the new version', or asks you to handle the release feed for them. This skill assumes Xcode has already produced a signed/notarized Pezi.app archive and turns that archive into a published Sparkle release."
+description: "Publish a signed and notarized Pezi build from the pezi-release repository. Use this whenever the user is working in the pezi-release repo and says things like 'commit and push', 'publish release', 'ship the new version', 'push the new version', or asks you to handle the release feed for them. This skill should ask the user for the Pezi.app path and release summary when those inputs are missing, then finish the Sparkle publish flow in the release repo."
 ---
 
 # Pezi Release Commit And Push
@@ -11,44 +11,44 @@ The intent is deliberately narrow: the user has already built, signed, and notar
 
 ## What this skill does
 
-1. Finds the latest archived `Pezi.app` under `~/Library/Developer/Xcode/Archives`
-2. Reuses existing release notes if a matching Markdown file exists
-3. Otherwise auto-generates release notes from the archived app version/build and recent app repo commits
+1. Asks for the exported `Pezi.app` path if the user did not provide it
+2. Asks what changed in this release if the user did not provide release notes
+3. Writes a Markdown release-notes file in this repo
 4. Packages the app correctly with `ditto`
 5. Regenerates `appcast.xml`
 6. Commits and pushes the `pezi-release` repository
-
-The deterministic entrypoint is:
-
-```sh
-./scripts/commit-and-push.sh
-```
 
 ## Preconditions
 
 Before running the script, confirm:
 
 - the current repository is `pezi-release`
-- the latest Xcode archive is the one the user actually wants to publish
+- the user has provided the exact `Pezi.app` they want to publish
 - the app has already been signed and notarized
 
-If those assumptions are false, stop and ask for the explicit archive path or for a fresh archive.
+If those assumptions are false, stop and ask.
 
 ## Workflow
 
-1. Run:
+1. If the user did not provide an app path, ask for it directly. Do not guess by scanning Xcode archives.
+
+2. If the user did not say what changed in this release, ask for a short bullet summary and turn it into a Markdown file under `release-notes/`.
+
+3. Run the deterministic publisher:
 
 ```sh
-./scripts/commit-and-push.sh
+./scripts/publish-release.sh \
+  --app "/path/to/Pezi.app" \
+  --release-notes "./release-notes/<short-version>-<build>.md" \
+  --commit \
+  --push
 ```
 
-2. If the script fails because the build already exists in `appcast.xml`, tell the user to bump `CFBundleVersion` in the app repo and rebuild.
+4. If the script fails because the build already exists in `appcast.xml`, tell the user to bump `CFBundleVersion` in the app repo and rebuild.
 
-3. If the script fails because no archive exists, tell the user to archive/export the app from Xcode first.
+5. If the script fails because the app path is wrong or the app is not export-ready, tell the user exactly what needs to be rebuilt or re-exported.
 
-4. Do not ask the user for release notes unless the auto-generated notes are clearly wrong and human judgment is required.
-
-5. If the script succeeds, report:
+6. If the script succeeds, report:
    - the chosen archive path
    - the version/build that was published
    - the release repo commit hash
@@ -56,26 +56,30 @@ If those assumptions are false, stop and ask for the explicit archive path or fo
 
 ## Release Notes Convention
 
-If `release-notes/` exists in this repo, the wrapper script first looks for:
+Create `release-notes/<short-version>-<build>.md` before publishing.
 
-- `release-notes/<short-version>-<build>.md`
-- `release-notes/<short-version>.md`
-- `release-notes/<build>.md`
-- `release-notes/latest.md`
+Recommended content:
 
-If none of those exist, it publishes without release notes.
-If none of those exist, the wrapper now auto-generates `release-notes/<short-version>-<build>.md` from the app bundle metadata and recent `candy-jar` commits.
+```md
+# Pezi <short-version>
+
+Build <build>
+
+Highlights:
+- ...
+- ...
+```
 
 ## Failure Modes
 
 - `appcast.xml already contains build ...`:
   The build number was not bumped. Do not work around this. Tell the user to increment `CFBundleVersion`.
 
-- `Could not find a Pezi.app archive ...`:
-  There is no exportable archive in Xcode's archive directory. Ask the user to build/sign/notarize first.
+- Missing app path:
+  Ask the user for the exact exported `Pezi.app`.
 
-- Auto-generated release notes are poor or misleading:
-  Rewrite them in the release repo and rerun the publish command.
+- Missing release summary:
+  Ask the user what changed in this release, then write the release notes file yourself.
 
 - Sparkle packaging or signing validation failures:
   Surface the exact error and stop. Do not hand-roll `appcast.xml`.
@@ -86,7 +90,7 @@ If none of those exist, the wrapper now auto-generates `release-notes/<short-ver
 
 User: `commit and push`
 
-Action: Run `./scripts/commit-and-push.sh` in the `pezi-release` repo and report the result.
+Action: Ask for the exported `Pezi.app` path and what changed in this release if either is missing. Then write the release notes file, run `publish-release.sh`, and report the result.
 
 **Example 2**
 
@@ -98,4 +102,4 @@ Action: Same workflow. This phrase should trigger the skill even if the user doe
 
 User: `ship the new version`
 
-Action: Same workflow, but if the newest archive is ambiguous, stop and ask which archive to use.
+Action: Same workflow. Do not scan for a candidate archive; ask the user which `Pezi.app` to publish.
