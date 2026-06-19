@@ -1,0 +1,65 @@
+release-notes/1.0-1.md
+  s_d582743b465cec::t_4c9dc1e7bdbc39 1-6
+release-notes/1.0-2.md
+  s_d582743b465cec::t_c02fcc042e081d 1-6
+.gitignore
+  s_d582743b465cec::t_3dafcce368a6e6 1 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a34ff27416d52df0933de79","tool_type":"agent","tool_id":"apply_patch","line_ranges":[{"Single":1}]}]}
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "9aedb6ba8948786d9bf3b5e4d16fbdd527e3d903",
+  "prompts": {},
+  "sessions": {
+    "s_d582743b465cec": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a34f4fc416d52df0933dd7c",
+        "model": "gpt-5.4__dev",
+        "display_model_name": "GPT-5.4"
+      },
+      "human_author": "shenzhiyu.718 <shenzhiyu.718@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {
+    ".gitignore": [
+      {
+        "hash": "s_d582743b465cec::t_3dafcce368a6e6",
+        "line_ranges": [
+          {
+            "Single": 1
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a34ff27416d52df0933de79",
+            "tool_type": "agent",
+            "tool_id": "apply_patch",
+            "line_ranges": [
+              {
+                "Single": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "remote_transcripts": {
+    "s_d582743b465cec": {
+      "tool": "trae",
+      "conversation_id": "6a34f4fc416d52df0933dd7c",
+      "session_id": "6a34f4fc416d52df0933dd7c",
+      "status": "remote_only",
+      "message": "Remote transcript resolution is not implemented yet for TRAE prompts."
+    },
+    "s_d582743b465cec::t_3dafcce368a6e6": {
+      "tool": "trae",
+      "conversation_id": "6a34f4fc416d52df0933dd7c",
+      "session_id": "6a34f4fc416d52df0933dd7c",
+      "status": "remote_only",
+      "message": "Remote transcript resolution is not implemented yet for TRAE prompts."
+    }
+  }
+}
