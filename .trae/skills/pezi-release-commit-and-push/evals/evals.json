@@ -4,19 +4,19 @@
     {
       "id": 1,
       "prompt": "commit and push",
-      "expected_output": "Runs the release repo wrapper script, publishes the latest archived Pezi build, and reports the published version/build and URLs.",
+      "expected_output": "Asks for the exported Pezi.app path and release summary if missing, writes release notes, publishes through publish-release.sh, and reports the published version/build and URLs.",
       "files": []
     },
     {
       "id": 2,
       "prompt": "publish the latest build",
-      "expected_output": "Triggers the same release workflow from the pezi-release repo without requiring the user to mention Sparkle or appcast.",
+      "expected_output": "Triggers the same release workflow from the pezi-release repo, asking for missing release inputs instead of guessing.",
       "files": []
     },
     {
       "id": 3,
       "prompt": "ship the new version",
-      "expected_output": "Publishes the newest archived Pezi.app if unambiguous, or asks for clarification if multiple candidate archives need human choice.",
+      "expected_output": "Asks the user which exported Pezi.app to publish and what changed in the release if that information is not already present.",
       "files": []
     }
   ]
