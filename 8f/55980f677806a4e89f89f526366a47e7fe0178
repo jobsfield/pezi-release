@@ -1,0 +1,22 @@
+release-notes/1.0.1-4.md
+  s_7f41348cc5bc36::t_d55763a762eb5d 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "8f55980f677806a4e89f89f526366a47e7fe0178",
+  "prompts": {},
+  "sessions": {
+    "s_7f41348cc5bc36": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a36421a97e24ef54824ddef",
+        "model": "gpt-5.5__dev",
+        "display_model_name": "GPT-5.5"
+      },
+      "human_author": "shenzhiyu.718 <shenzhiyu.718@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
