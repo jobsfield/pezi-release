@@ -1,6 +1,6 @@
-# Pezi 1.0
+# Pezi 1.0.1
 
-Build 3
+Build 4
 
 Highlights:
-- Auto-focus tag editor
+- Major performance improvements across the viewer modal, item navigation, sidebar, and related interactions.
