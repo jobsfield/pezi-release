@@ -4,6 +4,15 @@
         <title>Pezi</title>
         <item>
             <title>1.0.1</title>
+            <pubDate>Sun, 21 Jun 2026 17:15:06 +0800</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
+            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="6220122" type="application/octet-stream" sparkle:edSignature="jIe02p6DZSZiVasRSeLpV5X2aAyMvH97bxCgCKGxZ8AQRJXhSy9w+vZfKNn1BEnx/Al5Hy0DEhSln6wCP++xDA=="/>
+        </item>
+        <item>
+            <title>1.0.1</title>
             <pubDate>Sat, 20 Jun 2026 16:49:24 +0800</pubDate>
             <sparkle:version>5</sparkle:version>
             <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
@@ -19,15 +28,6 @@
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
             <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="6251557" type="application/octet-stream" sparkle:edSignature="n2bo1e0gzKT2544qANZorEvnNGyjpFJ4DhNDPNzoBI2A9BHlGHAaKeLL6SFo5DxYCSEyFKpPL9hI001u49HMDQ=="/>
-        </item>
-        <item>
-            <title>1.0</title>
-            <pubDate>Fri, 19 Jun 2026 21:12:01 +0800</pubDate>
-            <sparkle:version>3</sparkle:version>
-            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
-            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="6238396" type="application/octet-stream" sparkle:edSignature="6JkPnpProLgiLmS/5rZ+kJrN+8PRHk95ANF5MjrnBjWQf8Z4BZKpkiwW9jsmnKgs8IB+XvomWC66ako7s+cIDw=="/>
         </item>
     </channel>
 </rss>
