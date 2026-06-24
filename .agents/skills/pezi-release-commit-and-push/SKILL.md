@@ -1,6 +1,6 @@
 ---
 name: pezi-release-commit-and-push
-description: "Publish a signed and notarized Pezi build from the pezi-release repository. Use this whenever the user is working in the pezi-release repo and says things like 'commit and push', 'publish release', 'ship the new version', 'push the new version', or asks you to handle the release feed for them. This skill should ask the user for the Pezi.app path and release summary when those inputs are missing, then finish the Sparkle publish flow in the release repo."
+description: "Publish a signed and notarized Pezi build from the pezi-release repository. Use this whenever the user is working in the pezi-release repo and says things like 'commit and push', 'publish release', 'ship the new version', 'push the new version', or asks you to handle the release feed for them. This skill should ask the user for the Pezi.app path and release summary when those inputs are missing, rewrite rough release-note text into concise user-facing changelog copy, then finish the Sparkle publish flow in the release repo."
 ---
 
 # Pezi Release Commit And Push
@@ -13,10 +13,11 @@ The intent is deliberately narrow: the user has already built, signed, and notar
 
 1. Asks for the exported `Pezi.app` path if the user did not provide it
 2. Asks what changed in this release if the user did not provide release notes
-3. Writes a Markdown release-notes file in this repo
-4. Packages the app correctly with `ditto`
-5. Regenerates `appcast.xml`
-6. Commits and pushes the `pezi-release` repository
+3. Rewrites the user's rough release summary into polished changelog wording
+4. Writes a Markdown release-notes file in this repo
+5. Packages the app correctly with `ditto`
+6. Regenerates `appcast.xml`
+7. Commits and pushes the `pezi-release` repository
 
 ## Preconditions
 
@@ -32,9 +33,19 @@ If those assumptions are false, stop and ask.
 
 1. If the user did not provide an app path, ask for it directly. Do not guess by scanning Xcode archives.
 
-2. If the user did not say what changed in this release, ask for a short bullet summary and turn it into a Markdown file under `release-notes/`.
+2. If the user did not say what changed in this release, ask for a short bullet summary.
 
-3. Run the deterministic publisher:
+3. Always rewrite the user's summary into polished release-note copy before writing the Markdown file under `release-notes/`.
+
+Guidelines for rewriting:
+- Preserve the actual meaning. Do not invent features, fixes, or scope.
+- Prefer concise, user-facing phrasing over internal implementation wording.
+- Fix grammar, tense, and terminology.
+- Avoid copying awkward raw text verbatim unless the user explicitly asks for that.
+- For a single change, use one strong bullet. For multiple changes, keep each bullet short and parallel in structure.
+- Prefer outcome-oriented phrasing such as "Improved...", "Fixed...", or "Refined..." when that accurately reflects the change.
+
+4. Run the deterministic publisher:
 
 ```sh
 ./scripts/publish-release.sh \
@@ -44,11 +55,11 @@ If those assumptions are false, stop and ask.
   --push
 ```
 
-4. If the script fails because the build already exists in `appcast.xml`, tell the user to bump `CFBundleVersion` in the app repo and rebuild.
+5. If the script fails because the build already exists in `appcast.xml`, tell the user to bump `CFBundleVersion` in the app repo and rebuild.
 
-5. If the script fails because the app path is wrong or the app is not export-ready, tell the user exactly what needs to be rebuilt or re-exported.
+6. If the script fails because the app path is wrong or the app is not export-ready, tell the user exactly what needs to be rebuilt or re-exported.
 
-6. If the script succeeds, report:
+7. If the script succeeds, report:
    - the chosen archive path
    - the version/build that was published
    - the release repo commit hash
@@ -70,6 +81,16 @@ Highlights:
 - ...
 ```
 
+The `Highlights` bullets should be polished release-note copy, not a raw paste of the user's wording.
+
+Examples of acceptable rewrites:
+
+- Raw: `improve the robustness of instagram media extraction`
+  Final: `Improved the reliability of Instagram media extraction`
+
+- Raw: `Refresh folder artwork in the Favorites section in time to prevent empty folders when Bankai Mode is on.`
+  Final: `Refreshed Favorites folder artwork promptly to prevent empty folder thumbnails when Bankai Mode is enabled`
+
 ## Failure Modes
 
 - `appcast.xml already contains build ...`:
@@ -79,7 +100,7 @@ Highlights:
   Ask the user for the exact exported `Pezi.app`.
 
 - Missing release summary:
-  Ask the user what changed in this release, then write the release notes file yourself.
+  Ask the user what changed in this release, rewrite it into polished changelog wording, then write the release notes file yourself.
 
 - Sparkle packaging or signing validation failures:
   Surface the exact error and stop. Do not hand-roll `appcast.xml`.
