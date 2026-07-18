@@ -1,8 +1,8 @@
-# Pezi 1.0.2
+# Pezi 1.0.3
 
-Build 9
+Build 10
 
 Highlights:
-- Search results now open at the top of the gallery instead of keeping your previous scroll position
-- Clearing search restores the scroll position you had before searching
-- Switching folders no longer briefly flashes the previous folder scrolled to the top
+- Added in-app language selection: Follow System, English, Simplified Chinese, Traditional Chinese, Japanese, and Korean
+- Localized the full app UI for those languages
+- Added AI Tags & Notes Language in Vision AI settings
