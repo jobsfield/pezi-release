@@ -1,8 +1,6 @@
-# Pezi 1.0.3
+# Pezi 1.0.4
 
-Build 10
+Build 11
 
 Highlights:
-- Added in-app language selection: Follow System, English, Simplified Chinese, Traditional Chinese, Japanese, and Korean
-- Localized the full app UI for those languages
-- Added AI Tags & Notes Language in Vision AI settings
+- Shows an upgrade modal when an imported library exceeds the free-tier limit
