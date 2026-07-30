@@ -1,6 +1,6 @@
 # Pezi 1.0.6
 
-Build 13
+Build 14
 
 Highlights:
-- Startup no longer briefly shows the wrong masonry grid before the correct one appears
+- Bug fix: Taking a new snapshot in the viewer now updates the thumbnail right away—no app restart needed.
