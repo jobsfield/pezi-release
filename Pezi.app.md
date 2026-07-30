@@ -3,4 +3,4 @@
 Build 13
 
 Highlights:
-- Fixed a brief flash of the wrong masonry grid at startup before the correct layout appears
+- Startup no longer briefly shows the wrong masonry grid before the correct one appears
