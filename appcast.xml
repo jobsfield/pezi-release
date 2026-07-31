@@ -4,12 +4,12 @@
         <title>Pezi</title>
         <item>
             <title>1.0.6</title>
-            <pubDate>Thu, 30 Jul 2026 22:14:34 +0800</pubDate>
-            <sparkle:version>14</sparkle:version>
+            <pubDate>Fri, 31 Jul 2026 16:43:33 +0800</pubDate>
+            <sparkle:version>15</sparkle:version>
             <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
-            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="6353347" type="application/octet-stream" sparkle:edSignature="uOqimQLf1ZGaiuqtfo912yAqQNFna2ejk9Yo+dttdgviG9wJsHp3wpCneabnQhjHVisE+xot858L+G2HD/kIAw=="/>
+            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="6402216" type="application/octet-stream" sparkle:edSignature="YMLjp2zpSN7cLNrdbvoRzjolfp2C4jtyqfXBePPRE2nAUno9UdoUlGFEVbr6mRqGEEWHiN5pjHDvB/1/nBeECA=="/>
         </item>
         <item>
             <title>1.0.6</title>

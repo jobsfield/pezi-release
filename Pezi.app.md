@@ -1,6 +1,6 @@
 # Pezi 1.0.6
 
-Build 14
+Build 15
 
 Highlights:
-- Bug fix: Taking a new snapshot in the viewer now updates the thumbnail right away—no app restart needed.
+- Favorite folders now correctly display thumbnails when a folder has fewer than 3 items
