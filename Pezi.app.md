@@ -1,6 +1,7 @@
-# Pezi 1.0.6
+# Pezi 1.0.7
 
-Build 15
+Build 16
 
 Highlights:
-- Favorite folders now correctly display thumbnails when a folder has fewer than 3 items
+- Choose from hundreds of SF Symbols as folder icons
+- Customize folder colors
