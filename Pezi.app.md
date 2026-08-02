@@ -1,7 +1,6 @@
-# Pezi 1.0.9
+# Pezi 1.0.10
 
-Build 19
+Build 20
 
 Highlights:
-- Choose from hundreds of SF Symbols as folder icons
-- Customize folder colors
+- Select multiple items by clicking or drag-selecting while holding Command or Shift
