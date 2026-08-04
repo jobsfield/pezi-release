@@ -1,6 +1,6 @@
-# Pezi 1.0.10
+# Pezi 1.0.11
 
-Build 20
+Build 21
 
 Highlights:
-- Select multiple items by clicking or drag-selecting while holding Command or Shift
+- Settings now use sidebar navigation instead of tabs for easier browsing
