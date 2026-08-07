@@ -1,6 +1,6 @@
-# Pezi 1.0.14
+# Pezi 1.0.15
 
-Build 24
+Build 25
 
 Highlights:
-- Raised the free library limit to 2,000
+- Improved the reliability of Pinterest media extraction
