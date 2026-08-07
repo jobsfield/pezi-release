@@ -1,6 +1,7 @@
-# Pezi 1.0.11
+# Pezi 1.0.12
 
-Build 21
+Build 22
 
 Highlights:
-- Settings now use sidebar navigation instead of tabs for easier browsing
+- Added Pinterest support for extracting media
+- Multi-select by holding Shift or Command, then clicking items or dragging a selection box
