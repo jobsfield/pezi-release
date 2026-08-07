@@ -1,7 +1,6 @@
-# Pezi 1.0.12
+# Pezi 1.0.14
 
-Build 22
+Build 24
 
 Highlights:
-- Added Pinterest support for extracting media
-- Multi-select by holding Shift or Command, then clicking items or dragging a selection box
+- Raised the free library limit to 2,000
