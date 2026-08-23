@@ -1,6 +1,6 @@
-# Pezi 1.0.31
+# Pezi 1.0.32
 
-Build 31
+Build 32
 
 Highlights:
 - Added an automatic preview panel when adding webpages, matching images and videos
