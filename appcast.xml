@@ -3,6 +3,15 @@
     <channel>
         <title>Pezi</title>
         <item>
+            <title>1.0.31</title>
+            <pubDate>Sun, 23 Aug 2026 19:08:07 +0800</pubDate>
+            <sparkle:version>31</sparkle:version>
+            <sparkle:shortVersionString>1.0.31</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
+            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="7213516" type="application/octet-stream" sparkle:edSignature="lNWiTYVF4w7nXdgc+M8rLUvzJybtn++a1Mqk4aPtZwNIwC8UXlP6Hzv17W4plbKpKJyaa1HNY0rjgJm5dJC6Bg=="/>
+        </item>
+        <item>
             <title>1.0.30</title>
             <pubDate>Sun, 23 Aug 2026 00:01:39 +0800</pubDate>
             <sparkle:version>30</sparkle:version>
@@ -19,15 +28,6 @@
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
             <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="7197515" type="application/octet-stream" sparkle:edSignature="5yqyGDwhERlAxlClz3cleDmfQI2J/9dNSkD5BMpt1pIoEaFb+d51gqre/rhAoBvMcL9Yohmk4MyfcqGYp69qAw=="/>
-        </item>
-        <item>
-            <title>1.0.17</title>
-            <pubDate>Sun, 16 Aug 2026 00:02:42 +0800</pubDate>
-            <sparkle:version>27</sparkle:version>
-            <sparkle:shortVersionString>1.0.17</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
-            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="7196586" type="application/octet-stream" sparkle:edSignature="eoxaJDxIZ5BRqU/beX+rhRzRDkZBz5i19YUP92Nj9Q4glAoH102qEZEjSlMM0Tej1R6qtRbMzGfWsbjs2C1iDA=="/>
         </item>
     </channel>
 </rss>

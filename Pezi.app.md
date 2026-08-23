@@ -1,10 +1,12 @@
-# Pezi 1.0.30
+# Pezi 1.0.31
 
-Build 30
+Build 31
 
 Highlights:
-- Adding a webpage now works the same as adding an image or video — a dedicated preview panel appears automatically
+- Added an automatic preview panel when adding webpages, matching images and videos
 - Redesigned the Stack Preview Bar demo
-- Fixed a bug that prevented some AI providers from working
-- Fixed a bug where multiple count badges appeared when dragging multiple selected items — now only one badge is shown
-- Refactored Favorite Folders — folder animations are even smoother
+- Fixed compatibility issues with some AI providers
+- Fixed duplicate count badges when dragging multiple selected items
+- Refined Favorite Folders with smoother animations
+- Streamlined the Settings panel
+- Simplified the onboarding process
