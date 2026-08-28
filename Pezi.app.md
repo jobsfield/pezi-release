@@ -1,6 +1,7 @@
-# Pezi 1.0.33
+# Pezi 1.0.35
 
-Build 33
+Build 35
 
 Highlights:
-- Polished folder artwork transitions, preventing doubled shadows on color changes and smoothing lid animations
+- Improved reliability when importing Eagle libraries
+- Added reordering support for normal folder lists
