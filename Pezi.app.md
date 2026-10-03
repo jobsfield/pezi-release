@@ -1,7 +1,6 @@
-# Pezi 1.0.35
+# Pezi 1.0.36
 
-Build 35
+Build 36
 
 Highlights:
-- Improved reliability when importing Eagle libraries
-- Added reordering support for normal folder lists
+- Fixed a startup issue that could prevent stale items from appearing
