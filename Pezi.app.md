@@ -1,6 +1,6 @@
-# Pezi 1.0.36
+# Pezi 1.0.37
 
-Build 36
+Build 37
 
 Highlights:
-- Fixed a startup issue that could prevent stale items from appearing
+- Added a new Stack Preview mode that displays stacked media thumbnails in the masonry view
