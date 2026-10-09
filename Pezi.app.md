@@ -1,6 +1,6 @@
-# Pezi 1.0.38
+# Pezi 1.0.39
 
-Build 38
+Build 39
 
 Highlights:
 - Added an interactive live webpage preview when saving links
