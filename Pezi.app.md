@@ -1,6 +1,6 @@
-# Pezi 1.0.37
+# Pezi 1.0.38
 
-Build 37
+Build 38
 
 Highlights:
-- Added a new Stack Preview mode that displays stacked media thumbnails in the masonry view
+- Added an interactive live webpage preview when saving links
