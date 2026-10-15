@@ -1,6 +1,11 @@
-# Pezi 1.0.39
+# Pezi 1.0.40
 
-Build 39
+Build 40
 
-Highlights:
+## Update
+
+- **New:** Hover over a video thumbnail to preview it directly in the masonry view
+
+## Recent Update
+
 - Added an interactive live webpage preview when saving links
