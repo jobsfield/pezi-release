@@ -1,6 +1,6 @@
-# Pezi 1.0.42
+# Pezi 1.0.43
 
-Build 42
+Build 43
 
 ## Update
 

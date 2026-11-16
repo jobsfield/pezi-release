@@ -3,6 +3,15 @@
     <channel>
         <title>Pezi</title>
         <item>
+            <title>1.0.43</title>
+            <pubDate>Mon, 16 Nov 2026 21:53:55 +0800</pubDate>
+            <sparkle:version>43</sparkle:version>
+            <sparkle:shortVersionString>1.0.43</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
+            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="11076428" type="application/octet-stream" sparkle:edSignature="HGf5wFwDSXXd0v2+bRsNmeoFPgPPPQ3Nbiq8kdyHcMHEU2cvXxf5r1vJIZCrshr+EG08lJ+gJvcKKDQW11LfBw=="/>
+        </item>
+        <item>
             <title>1.0.42</title>
             <pubDate>Fri, 13 Nov 2026 21:52:22 +0800</pubDate>
             <sparkle:version>42</sparkle:version>
@@ -19,15 +28,6 @@
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
             <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="9443736" type="application/octet-stream" sparkle:edSignature="1Qt+af0NWNdHJZCqqqgvxASEVL7tXwJ+atcuFw6Uc8xJwq3vjkJcSavfBXVZ1wnii69Ju8ABOLLBtiLZk7WPDA=="/>
-        </item>
-        <item>
-            <title>1.0.40</title>
-            <pubDate>Thu, 15 Oct 2026 11:34:39 +0800</pubDate>
-            <sparkle:version>40</sparkle:version>
-            <sparkle:shortVersionString>1.0.40</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink>https://jobsfield.github.io/pezi-release/Pezi.app.md</sparkle:releaseNotesLink>
-            <enclosure url="https://jobsfield.github.io/pezi-release/Pezi.app.zip" length="7944002" type="application/octet-stream" sparkle:edSignature="OSPfs7VMNH6GkXaVU69sZ31Q8Sdquf/7r6/jnfigIW/9rCV+L+rR4Y+KA46ZchfyRDTKbmYwKLcQGP+vPamqCA=="/>
         </item>
     </channel>
 </rss>
